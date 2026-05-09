@@ -12,10 +12,6 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
-    {/* <Form action="/workouts">
-       <input name="username"/>
-       <button type="submit">Login</button>
-    </Form> */}
       <input title="username" onChange={handleInput}></input>
       <p>{user}</p>
       <button><Link href="/workouts">Workouts</Link></button>

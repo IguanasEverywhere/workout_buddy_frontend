@@ -5,12 +5,22 @@ import WorkoutAdvice from './WorkoutAdvice';
 function WorkoutsLanding() {
 
   return (
-   <div>
-    <h1>Hello, person!</h1>
-    <RecentWorkouts />
-    <NewWorkoutForm />
-    <WorkoutAdvice />
+    <>
+    <div>
+      <h1>Hello, person!</h1>
+    </div>
+    <div className="bg-green-500 p-4 rounded-lg grid grid-cols-3 gap-4">
+      <div className="bg-red-500">
+      <RecentWorkouts />
+      </div>
+      <div className="bg-yellow-500">
+      <NewWorkoutForm />
+      </div>
+      <div className="bg-blue-500">
+      <WorkoutAdvice />
+      </div>
    </div>
+   </>
   )
 }
 
