@@ -1,13 +1,18 @@
+
 import RecentWorkouts from './RecentWorkouts';
 import NewWorkoutForm from './NewWorkoutForm';
 import WorkoutAdvice from './WorkoutAdvice';
 
+
 function WorkoutsLanding() {
+
+  // const searchParams = useSearchParams();
+  // const username = searchParams.get('username');
 
   return (
     <>
     <div>
-      <h1>Hello, person!</h1>
+      <h1>Hello, ddd!</h1>
     </div>
     <div className="bg-green-500 p-4 rounded-lg grid grid-cols-3 gap-4">
       <div className="bg-red-500">
