@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+   output: 'standalone',
    async rewrites() {
     return [
       {
         source: '/api/local/:path*',
-        destination: 'http://127.0.0.1:5555/:path*',
+        destination: 'http://host.docker.interal:5555/:path*',
       },
     ];
   },
