@@ -12,6 +12,7 @@ function WorkoutAdvice() {
 
   const handleClick = () => {
     setGetAdvice(prevVal => !prevVal)
+    setLoading(true);
   }
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function WorkoutAdvice() {
   }, [getAdvice]);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading workouts.</p>;
+  if (error) return <p>Error loading advice.</p>;
 
 
   return (

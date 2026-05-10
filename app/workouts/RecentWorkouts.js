@@ -21,7 +21,7 @@ function RecentWorkouts({status}) {
   }, [status]);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading workouts.</p>;
+  if (error) return <p>No workouts found!.</p>;
 
 
   return (
