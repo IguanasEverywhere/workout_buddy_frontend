@@ -16,7 +16,7 @@ function WorkoutsLanding() {
   return (
     <>
     <div>
-      <h1>Hello, Scott!</h1>
+      <h1 className="text-center text-4xl font-style: italic">💪Your AI Workout Buddy is here, Scott!</h1>
     </div>
     <div className="p-4 grid grid-cols-3 gap-4">
       <div className="border rounded-lg p-3 shadow-md shadow-gray-500 bg-blue-50">

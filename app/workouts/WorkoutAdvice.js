@@ -14,21 +14,21 @@ function WorkoutAdvice() {
     setGetAdvice(prevVal => !prevVal)
   }
 
-  // useEffect(() => {
-  //   fetch('http://127.0.0.1:5555/next-workout/1')
-  //   .then((r) => r.json())
-  //   .then((data) => {
-  //     setWorkoutAdvice(data);
-  //     setLoading(false);
-  //   })
-  //   .catch((err) => {
-  //     setError(err);
-  //     setLoading(false);
-  //   });
-  // }, [getAdvice]);
+  useEffect(() => {
+    fetch('http://127.0.0.1:5555/next-workout/1')
+    .then((r) => r.json())
+    .then((data) => {
+      setWorkoutAdvice(data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      setError(err);
+      setLoading(false);
+    });
+  }, [getAdvice]);
 
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error loading workouts.</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading workouts.</p>;
 
 
   return (
