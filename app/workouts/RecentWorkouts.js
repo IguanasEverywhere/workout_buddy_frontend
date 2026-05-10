@@ -23,15 +23,22 @@ function RecentWorkouts({status}) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading workouts.</p>;
 
+
   return (
     <div>
-      <h1>Recent Workouts!</h1>
+      <h1 className="text-center text-2xl">Your Most Recent Workout Exercises:</h1>
+      <ul>
       {userWorkouts.length > 0
         ? userWorkouts.map((workout) => (
-            <div key={workout.id}>{workout.exercise_name}</div>
+            <li key={workout.id}
+            className="text-xl border-2 border-style: solid;">
+              {workout.exercise_name} | {workout.reps} reps | {workout.weight} lbs
+              <p className="text-sm">{workout.notes}</p>
+            </li>
           ))
         : <p>No workouts</p>
       }
+      </ul>
     </div>
   );
 }
