@@ -1,28 +1,17 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react';
+
 
 function Home() {
 
-  // const [user, setUser] = useState('')
 
-//   function handleInput(e) {
-//     setUser(e.target.value)
-// }
   return (
-    <div>
-      <h1>Home</h1>
-      {/* <input title="username" onChange={handleInput}></input> */}
-      {/* <p>{user}</p> */}
-      {/* <button><Link href={{
-        pathname: '/workouts',
-        query: {username: user},
-      }}>Workouts</Link></button> */}
-      <form action={WorkoutsLanding}>
-        <input name="username" />
-        <button type="submit">Login</button>
-      </form>
-       <button><Link href='/workouts'>Workouts</Link></button>
+    <div className="text-center border rounded-lg p-3 shadow-md shadow-gray-500 bg-blue-50">
+       <h1 className="text-center text-4xl font-style: italic my-4">💪Your AI Workout Buddy is Here!</h1>
+       <input className="border my-4" placeholder="Enter username"></input>
+       <p>
+       <button className="cursor-pointer bg-yellow-200 hover:bg-yellow-500 p-2 my-4"><Link href='/workouts'>Take Me To My AI Workout Buddy!</Link></button>
+       </p>
     </div>
   )
 }
