@@ -9,8 +9,6 @@ function WorkoutAdvice() {
   const [error, setError] = useState(false);
   const [getAdvice, setGetAdvice] = useState(false);
 
-  // const advicePars = [];
-
 
   const handleClick = () => {
     setGetAdvice(prevVal => !prevVal)
@@ -29,14 +27,21 @@ function WorkoutAdvice() {
   //   });
   // }, [getAdvice]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading workouts.</p>;
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error loading workouts.</p>;
 
 
   return (
     <>
-      <button onClick={handleClick}>Click to get workout advice</button>
+      <h1 className="text-center text-2xl">AI Workout Buddy says:</h1>
+
       <p>{workoutAdvice.workout_advice}</p>
+      <div className="text-center">
+        <button className="cursor-pointer bg-yellow-200 hover:bg-yellow-500 p-2"
+                onClick={handleClick}>
+                  Need fresh advice?
+        </button>
+      </div>
     </>
   )
 

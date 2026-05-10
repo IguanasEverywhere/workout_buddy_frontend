@@ -41,15 +41,16 @@ function NewWorkoutForm({handleUpdateWorkouts}) {
   })
 
   return (
-    <>
-    <h1>New Workout form</h1>
-    <form onSubmit={formik.handleSubmit}>
+    <div>
+    <h1 className="text-center text-2xl">Log New Exercise</h1>
+    <form onSubmit={formik.handleSubmit} className="p-4 grid">
         <label htmlFor="exercise">Exercise Name</label>
         <input
           id="exercise"
           name="exercise"
           onChange={formik.handleChange}
-          value={formik.values.exercise}>
+          value={formik.values.exercise}
+          className="border-2 border-gray-500">
         </input>
 
         <label htmlFor="weight">Weight</label>
@@ -58,7 +59,9 @@ function NewWorkoutForm({handleUpdateWorkouts}) {
           name="weight"
           type="number"
           onChange={formik.handleChange}
-          value={formik.values.weight}>
+          value={formik.values.weight}
+          className="border-2 border-gray-500">
+
         </input>
 
         <label htmlFor="reps">Reps</label>
@@ -67,20 +70,23 @@ function NewWorkoutForm({handleUpdateWorkouts}) {
           name="reps"
           type="number"
           onChange={formik.handleChange}
-          value={formik.values.reps}>
+          value={formik.values.reps}
+          className="border-2 border-gray-500">
         </input>
 
         <label htmlFor="notes">Notes</label>
-        <input
+        <textarea
           id="notes"
           name="notes"
           onChange={formik.handleChange}
-          value={formik.values.notes}>
-        </input>
+          value={formik.values.notes}
+          className="border-2 border-gray-500"
+          rows="8">
+        </textarea>
 
-        <button className="cursor-pointer bg-blue-500" type="submit">Add New Workout</button>
+        <button className="m-16 p-4 cursor-pointer bg-blue-500 hover:bg-blue-200" type="submit">Add New Workout</button>
     </form>
-    </>
+    </div>
 
   )
 }

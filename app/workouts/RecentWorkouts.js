@@ -31,7 +31,7 @@ function RecentWorkouts({status}) {
       {userWorkouts.length > 0
         ? userWorkouts.map((workout) => (
             <li key={workout.id}
-            className="text-xl border-2 border-style: solid;">
+            className="m-1 p-1 text-xl border-2 border-style: solid;">
               {workout.exercise_name} | {workout.reps} reps | {workout.weight} lbs
               <p className="text-sm">{workout.notes}</p>
             </li>

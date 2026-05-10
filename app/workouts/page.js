@@ -19,13 +19,13 @@ function WorkoutsLanding() {
       <h1>Hello, Scott!</h1>
     </div>
     <div className="p-4 grid grid-cols-3 gap-4">
-      <div class="border rounded-lg p-3 shadow-md shadow-gray-500">
+      <div className="border rounded-lg p-3 shadow-md shadow-gray-500 bg-blue-50">
       <RecentWorkouts status={newWorkouts}/>
       </div>
-      <div className="border rounded-lg p-3 shadow-md shadow-gray-500">
+      <div className="border rounded-lg p-3 shadow-md shadow-gray-500 bg-blue-50">
       <NewWorkoutForm handleUpdateWorkouts={updateWorkouts} />
       </div>
-      <div className="border rounded-lg p-3 shadow-md shadow-gray-500">
+      <div className="border rounded-lg p-3 shadow-md shadow-gray-500 bg-yellow-50">
       <WorkoutAdvice />
       </div>
    </div>
