@@ -1,25 +1,29 @@
-
+'use client'
 import RecentWorkouts from './RecentWorkouts';
 import NewWorkoutForm from './NewWorkoutForm';
 import WorkoutAdvice from './WorkoutAdvice';
 
+import { useState } from "react";
+
 
 function WorkoutsLanding() {
+  const [newWorkouts, setNewWorkouts] = useState(false);
 
-  // const searchParams = useSearchParams();
-  // const username = searchParams.get('username');
+  const updateWorkouts = () => {
+    setNewWorkouts(prevVal => !prevVal);
+  }
 
   return (
     <>
     <div>
-      <h1>Hello, ddd!</h1>
+      <h1>Hello, Scott!</h1>
     </div>
     <div className="bg-green-500 p-4 rounded-lg grid grid-cols-3 gap-4">
       <div className="bg-red-500">
-      <RecentWorkouts />
+      <RecentWorkouts status={newWorkouts}/>
       </div>
       <div className="bg-yellow-500">
-      <NewWorkoutForm />
+      <NewWorkoutForm handleUpdateWorkouts={updateWorkouts} />
       </div>
       <div className="bg-blue-500">
       <WorkoutAdvice />
@@ -29,16 +33,5 @@ function WorkoutsLanding() {
   )
 }
 
-// async function Workouts() {
-//   const dataFetch = await fetch('http://127.0.0.1:5555/next-workout/1')
-//   const userWorkouts = await dataFetch.json()
-
-//   console.log(userWorkouts)
-//   return (
-//     <h3>Workouts</h3>
-
-
-//   )
-// }
 
 export default WorkoutsLanding;

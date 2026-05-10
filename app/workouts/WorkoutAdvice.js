@@ -1,17 +1,34 @@
-// 'use client'
+'use client'
 
-// import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-async function WorkoutAdvice() {
+function WorkoutAdvice() {
 
-  // const [workoutAdvice, setWorkoutAdvice] = useState('');
+  const [workoutAdvice, setWorkoutAdvice] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
+  useEffect(() => {
+    fetch('http://127.0.0.1:5555/next-workout/1')
+    .then((r) => r.json())
+    .then((data) => {
+      setWorkoutAdvice(data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      setError(err);
+      setLoading(false);
+    });
+  }, []);
 
-  const dataFetch = await fetch('http://127.0.0.1:5555/next-workout/1')
-  const aiResponse = await dataFetch.json()
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading workouts.</p>;
 
   return (
-    <h3>{aiResponse.workout_advice}</h3>
+    <>
+      <button>Click to get workout advice</button>
+      <p>{workoutAdvice.workout_advice}</p>
+    </>
   )
 
 

@@ -3,7 +3,7 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-function NewWorkoutForm() {
+function NewWorkoutForm({handleUpdateWorkouts}) {
 
   const schema = yup.object().shape({
     exercise: yup.string().required(),
@@ -34,7 +34,8 @@ function NewWorkoutForm() {
         },
         body: JSON.stringify(formattedValues)
       }).then(r => r.json()).then(confirmation => {
-        console.log(confirmation)
+        console.log(confirmation);
+        handleUpdateWorkouts()
       })
     }
   })

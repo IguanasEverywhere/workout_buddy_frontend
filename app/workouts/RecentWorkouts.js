@@ -1,21 +1,39 @@
-async function RecentWorkouts() {
-  const dataFetch = await fetch('http://127.0.0.1:5555/data/1')
-  const userWorkouts = await dataFetch.json()
+"use client";
 
-  let workoutsInfo = userWorkouts.length > 0 ? userWorkouts.map((workout) =>
-    <div key={workout.id}>
-       {workout.exercise_name}
-    </div>
-  ) :
-  <p>No workouts</p>;
+import { useState, useEffect } from "react";
 
+function RecentWorkouts({status}) {
+  const [userWorkouts, setUserWorkouts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:5555/data/1")
+      .then((res) => res.json())
+      .then((data) => {
+        setUserWorkouts(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setLoading(false);
+      });
+  }, [status]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading workouts.</p>;
 
   return (
-   <div>
-    <h1>Recent Workouts!</h1>
-    {workoutsInfo}
-   </div>
-  )
+    <div>
+      <h1>Recent Workouts!</h1>
+      {userWorkouts.length > 0
+        ? userWorkouts.map((workout) => (
+            <div key={workout.id}>{workout.exercise_name}</div>
+          ))
+        : <p>No workouts</p>
+      }
+    </div>
+  );
 }
 
 export default RecentWorkouts;
