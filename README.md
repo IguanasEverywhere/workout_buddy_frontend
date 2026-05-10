@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Workout Buddy Backend
 
-## Getting Started
+## Description
+AI Workout Buddy provides AI-generated workout advice based on a user's previous exercises and their own descriptions of concerns and goals.
 
-First, run the development server:
+Please see demo & discussion video here: [Loom Demo](https://www.loom.com/share/55652b236896401d919fd09c99775047)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Instructions for Use with Docker
+* If you haven't already, follow instructions to spin up the [AI Workout Buddy Backend](https://github.com/IguanasEverywhere/workout_buddy_backend)
+* Clone this repo to your system
+* In the project directory, run `docker build -t workout_buddy_frontend .`
+* After build is complete, run `docker run -p 3000:3000 my-frontend`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+With the backend running on on port 5555, you should now be able to view (and interact with) the project at [http://localhost:3000/](http://localhost:3000/).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Alternatively, if you don't wish to use Docker, you can `npm run dev` from the root project directory (after installing all dependencies).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Ideas for Future Improvement
+* Shelves or dropdowns by workout date
+    * Data is currently limited to a simple list, but as most workouts comprise of many exercises, it would be ideal to have exercises with more hardier groupings, both in terms of presentation and the data itself
+* Clear the input fields after submission of New Exercise form (easy to do)
+* Better loading screens
+    * Currently provides user with "Loading..." feedback, but a more imaginative spinner or animation would be ideal
+* Clean up AI text, visually
+    * The AI suggestions are currently in a single wall of text. Investigating ways of splitting this data on new lines/paragraphs, at the very least, would improve the user experience significantly.
+* Actual user login/authentication
+    * All endpoints are currently hard-coded to one "User"
+* Explore models with deeper context, and allow for more robust data on my own back end
